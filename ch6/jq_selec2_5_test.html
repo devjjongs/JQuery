@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title> 선택자 </title>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(function () {
+      $("#menu1 li:nth-child(1)").css({"background-color": "yellow"});
+      // #menu1 li:nth-child(1) >> id menu의 li중 ()번째 요소
+      $("#menu1 li:nth-child(2n)").css({"border": "2px dashed red"});
+      // #menu1 li:nth-child(2n) >> id menu의 li중 짝수 번째 요소
+      // $("#menu2 li:nth-child(2n)").css({"background-color": "cyan"});
+    //  추가 요소에 대한 style
+      $("#menu2 li:nth-last-child(2)").css({"background-color": "cyan"});
+      // #menu1 li:nth-last-child() >> id menu의 li중 마지막에서 ()번째 요소
+    });
+  </script>
+</head>
+<body>
+  <h1>탐색 선택자</h1>
+  <ul id="menu1">
+    <li>내용1-1</li>
+    <li>내용1-2</li>
+    <li>내용1-3</li>
+    <li>내용1-4</li>
+  </ul>
+  <ul id="menu2">
+    <li>내용2-1</li>
+    <li>내용2-2</li>
+    <li>내용2-3</li>
+<!--  요소 추가  -->
+    <li>내용2-4</li>
+    <li>내용2-5</li>
+    <li>내용2-6</li>
+    <li>내용2-7</li>
+    <li>내용2-8</li>
+    <li>내용2-9</li>
+  </ul>
+</body>
+</html>

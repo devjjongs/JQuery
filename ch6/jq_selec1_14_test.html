@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title> 선택자 </title>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(function () {
+      $(".txt1").parent().css({"border": "2px dashed #00f"});
+      // .parent() >> 상위 부모 요소
+      // .parents() >> 상위 부모 요소 모두
+      $(".txt2").parents("section").css({"border":"2px solid red"})
+      // .parents("section") >> 부모 중 section 요소
+    });
+  </script>
+</head>
+<body>
+  <h1 class="title">선택자</h1>
+  <section>
+    <div>
+      <p class="txt1">내용</p>
+    </div>
+  </section>
+  <section>
+    <div>
+      <p class="txt2">내용</p>
+    </div>
+  </section>
+</body>
+</html>
