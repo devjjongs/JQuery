@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title> 객체 조작 및 생성 </title>  
-<script src="js/jquery.js"></script>
-<script>
-$(function( ){
+    <meta charset="UTF-8">
+    <title> 객체 조작 및 생성 </title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            var topV = $("h1").offset().top;
+            $(window).scrollTop(topV);
 
-});
-</script>
-<style>
-	*{margin:0;padding:0;}
-	body{line-height:1;}
-	#wrap{
-			height:5000px;
-			padding-top:2000px;
-	}
-</style>
+            var sct = $(window).scrollTop();
+            console.log(sct);
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        #wrap {
+            height: 5000px;
+            padding-top: 2000px;
+        }
+    </style>
 </head>
 <body>
-	<div id="wrap">
-			<h1>위치 메서드</h1>
-	</div>
+    <div id="wrap">
+        <h1>위치 메서드</h1>
+    </div>
 </body>
 </html>
