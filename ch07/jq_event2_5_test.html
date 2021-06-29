@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title> 이벤트 </title>  
-<script src="js/jquery.js"></script>
-<script>
-$(function(){
+    <meta charset="UTF-8">
+    <title> 이벤트 </title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".menuWrap_1 a").on("click", function (e) {
+                e.preventDefault();
+                $(".menuWrap_1 a").css({"background-Color": "#fff"});
+                $(this).css({"background-Color": "#ff0"});
+            })      //  선택하는 요소에만 "background-Color": "#ff0" 적용
 
-});
-</script>
+
+            $(".menuWrap_2 a").on("click", function (e) {
+                e.preventDefault();
+                $(".menuWrap_2 a").css({"background-Color": "#fff"});
+
+                var idx = $(".menuWrap_2 a").index(this);
+                $(".menuWrap_2 a").eq(idx)
+                    .css({"background-Color": "#0ff"});
+
+
+                $(".idxNum").text(idx);     //  인덱스 번호 호출
+            })
+        });
+    </script>
 </head>
 <body>
-<h2>$(this)</h2>
-<ul class="menuWrap_1">
-				<li><a href="#">메뉴1</a></li>
-				<li><a href="#">메뉴2</a></li>
-				<li><a href="#">메뉴3</a></li>
-</ul>
-<h2>Index( )</h2>   
-<ul class="menuWrap_2">
-				<li><a href="#">메뉴4</a></li>
-				<li><a href="#">메뉴5</a></li>
-				<li><a href="#">메뉴6</a></li>
-</ul>
-<p class="idxNum"></p>
+    <h2>$(this)</h2>
+    <ul class="menuWrap_1">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+    </ul>
+    <h2>Index( )</h2>
+    <ul class="menuWrap_2">
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+        <li><a href="#">메뉴6</a></li>
+    </ul>
+    <p class="idxNum"></p>  <!-- 인덱스 번호 출력 -->
 </body>
-</html>
+</html

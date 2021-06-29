@@ -7,8 +7,26 @@
     <script>
         $(function () {
             $(".btn1").click(function () {
-                $(".btn1").parent().next().css({"color": "red"});
-            })
+                $(".btn1").parent().next()
+                    .css({"color": "red"});
+            });
+            $(".btn2").on({
+                "mouseover focus": function () {
+                    $(".btn2").parent().next()
+                        .css({"color": "green"});
+                },
+                "mouseout blur": function () {
+                    $(".btn2").parent().next()
+                        .css({"color": "black"});
+                }
+            });
+            $(".btn1").click();
+            $(".btn2").trigger("mouseover");
+            // .trigger를 이용하여 이벤트를 강제 실행
+
+            $(".btn1").off("click");
+            $(".btn2").off("mouseover focus");
+            // .off를 이용하여 이벤트 기능을 강제 종료
         });
     </script>
 </head>

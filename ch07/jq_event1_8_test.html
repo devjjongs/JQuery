@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title> 이벤트 </title>  
-<script src="js/jquery.js"></script>
-<script>
-$(function( ) {
-
-});
-</script>
+    <meta charset="UTF-8">
+    <title> 이벤트 </title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(document).on("mousemove", function (e) {
+                $(".posX").text(e.pageX);
+                $(".posY").text(e.pageY);
+            })
+            $(document).on("mousemove", function (e) {
+                $(".clientX").text(e.clientX);
+                $(".clientY").text(e.clientY);
+            })
+            $(document).on("mousemove", function (e) {
+                $(".screenX").text(e.screenX);
+                $(".screenY").text(e.screenY);
+            })
+        });
+    </script>
 </head>
 <body>
-<h1>mousemove</h1>
-<p>X : <span class="posX">0</span>px</p>
-<p>Y : <span class="posY">0</span>px</p>
+    <h1>mousemove</h1>
+    <p>posX : <span class="posX">0</span>px</p>
+    <p>posY : <span class="posY">0</span>px</p>
+    <p>=================================</p>
+    <p>clientX : <span class="clientX">0</span>px</p>
+    <p>clientY : <span class="clientY">0</span>px</p>
+    <p>=================================</p>
+    <p>screenX : <span class="screenX">0</span>px</p>
+    <p>screenY : <span class="screenY">0</span>px</p>
 </body>
 </html>

@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title> 이벤트 </title>  
-<script src="js/jquery.js"></script>
-<script>
-$(function(){
+    <meta charset="UTF-8">
+    <title> 이벤트 </title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(".btn_1").on(".btn_1.on", "mouseover focus", function () {
+                alert("Hello!!!");
+            });
+            $(".btn_1").addClass("on");
 
-});
-</script>
+
+            $(document).on("mouseover focus", ".btn_2.on", function () {
+                alert("Welcome!!!");
+            })
+            $(".btn_2").addClass("on");
+        });
+    </script>
 </head>
 <body>
-	<div id="wrap">
-		<p><button class="btn_1">버튼1</button></p>
-		<p><button class="btn_2">버튼2</button></p>
-	</div>
+    <div id="wrap">
+        <p>
+            <button class="btn_1">버튼1</button>
+        </p>
+        <p>
+            <button class="btn_2">버튼2</button>
+        </p>
+    </div>
 </body>
 </html>

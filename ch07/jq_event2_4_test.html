@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title> 이벤트 </title>  
-<script src="js/jquery.js"></script>
-<script>
-$(function(){
+    <meta charset="UTF-8">
+    <title> 이벤트 </title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function () {
+            $(document).on("keydown", function (e) {
+                var kcode = e.keyCode;
+                console.log(kcode);
 
-});
-</script>
+                var direct = " ";
+                switch (kcode) {
+                    case 38 :
+                        direct = "TOP";
+                        break;
+                    case 39 :
+                        direct = "RIGHT";
+                        break;
+                    case 40 :
+                        direct = "BOTTOM";
+                        break;
+                    case 37 :
+                        direct = "LEFT";
+                        break;
+                }
+                $("#user_id").val(direct);
+            })
+        });
+    </script>
 </head>
 <body>
-	<p><input type="text" name="user_id" id="user_id"></p>
+    <p><input type="text" name="user_id" id="user_id"></p>
 </body>
 </html>

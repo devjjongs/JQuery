@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <script src="js/jquery.js"></script>
+    <meta name="author" content="tailofmoon">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form name="cal">
+        <table>
+            <caption>계산기</caption>
+            <tr>
+                <th colspan="4"><input type="text" name="result" value="0"></th>
+            </tr>
+            <tr>
+                <td><input type="button" value="7"></td>
+                <td><input type="button" value="8"></td>
+                <td><input type="button" value="9"></td>
+                <td><input type="button" value="+"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4"></td>
+                <td><input type="button" value="5"></td>
+                <td><input type="button" value="6"></td>
+                <td><input type="button" value="-"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1"></td>
+                <td><input type="button" value="2"></td>
+                <td><input type="button" value="3"></td>
+                <td><input type="button" value="*"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="0"></td>
+                <td><input type="button" value="%"></td>
+                <td><input type="button" value="/"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" class="cls_btn" value="clear"></td>
+                <td colspan="2"><input type="button" class="result_btn" value="="></td>
+            </tr>
+        </table>
+    </form>
+    <!--   -->
+    <!--  여기부터  -->
+    <!--<script src="app.js">-->
+    <script>
+        var inp = $('form[name=cal]');
+        var input = inp.find('input');
+        var cls_btn = $('.cls_btn');
+        var result_btn = $('.result_btn');
+        var result = inp.find('input[name=result]');
+
+        //  계산기 초기화
+        function clr() {
+            result.val(0);
+        }
+
+        //  입력 처리
+        function calc(value) {
+            if (result.val() == 0) {
+                result.val('');
+            }
+            var val = result.val() + value;   //  입력값을 결과창에 출력
+            result.val(val);
+        }
+
+        //  계산 결과 처리
+        function my_result() {
+            var calc = eval(result.val());
+            result.val(calc);     //  계산 결과를 결과창에 출력
+        }
+
+        // 이벤트 핸들러
+        $("input").click(function () {
+            var inValue = $(this).val();
+            if (inValue != 'clear' && inValue != '=') {
+                calc(inValue);
+            }
+        })
+
+        $(".cls_btn").click(function () {
+            clr();
+        });
+
+        $(".result_btn").click(function () {
+            try {
+                my_result();
+            } catch (err) {
+                result.val('입력오류');
+            }
+        });
+    </script>
+    <!--  여기까지 직접  -->
+    <!--    -->
+</body>
+</html>
