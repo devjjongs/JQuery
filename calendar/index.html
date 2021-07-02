@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="tailofmoon">
+    <title>Calendar | 자바스크립트 프로젝트북</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="calendar_wrap">
+        <table id="calendar">
+            <caption>
+                <span class="year"></span>년
+                <span class="month"></span>월
+            </caption>
+            <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <a href="#" id="prev">이전 달</a>
+        <a href="#" id="next">다음 달</a>
+    </div>
+    <!--    <script src="app.js"></script>-->
+    <script>
+        function calender(new_year, new_month) {
+            var d = new Date(new_year, new_month - 1, 1);
+            var d_length = 32 - new Date(new_year, new_month - 1, 32).getDate();
+            var year = d.getFullYear();
+            var month = d.getMonth();
+            var date = d.getDate();
+            var day = d.getDay();
+            // var cap_year = document.querySelector('.year');
+            // var cap_month = document.querySelector('.month');
+            // var start_day = document.querySelectorAll('tr td');
+            var cap_year = $('.year');
+            var cap_month = $('.month');
+            var start_day = $('tr td');
+
+            // for (var i = 0; i < start_day.length; i++) {
+            //     start_day[i].innerHTML = '&nbsp;';
+            // }
+            start_day.each(function (i) {   //테이블 초기화
+                $(this).html('&nbsp;');
+            })
+
+            // for (var i = day; i < day + d_length; i++) {
+            //     start_day[i].innerHTML = date;
+            //     date++;
+            // }
+            for (var i = 0; i < day + d; i++) {
+                start_day.eq(i).html(date);
+                date++;
+            }
+
+            // console.log(d_length);
+            cap_year.innerHTML = year;
+            cap_month.innerHTML = month + 1;
+        }
+
+        (function () {
+            var prev = $('#prev');
+            var next = $('#next');
+            var year = new Date().getFullYear();
+            var month = new Date().getMonth() + 1;
+            // console.log(month);
+
+            calender(year, month);
+            prev.onclick = function () {
+                calender(year, --month);
+            }
+            calender(year, month);
+            next.onclick = function () {
+                calender(year, ++month);
+            }
+        })();
+    </script>
+</body>
+</html>
